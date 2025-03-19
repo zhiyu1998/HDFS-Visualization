@@ -1,0 +1,74 @@
+.custom-node {
+  padding: 10px;
+  border-radius: 5px;
+  width: 150px;
+  font-size: 12px;
+  color: #222;
+  text-align: center;
+  border: 1px solid #1a192b;
+  position: relative;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.custom-node.namenode {
+  background-color: #ffcc80;
+  border-color: #ef6c00;
+}
+
+.custom-node.datanode {
+  background-color: #90caf9;
+  border-color: #1976d2;
+}
+
+.custom-node.client {
+  background-color: #c5e1a5;
+  border-color: #689f38;
+}
+
+.custom-node.file {
+  background-color: #e1bee7;
+  border-color: #8e24aa;
+}
+
+.custom-node.block {
+  background-color: #ffe082;
+  border-color: #ffa000;
+}
+
+.custom-node.dead {
+  opacity: 0.6;
+  background-image: repeating-linear-gradient(45deg, rgba(255, 0, 0, 0.1), rgba(255, 0, 0, 0.1) 10px, transparent 10px, transparent 20px);
+}
+
+.custom-node.standby {
+  opacity: 0.8;
+  background-image: repeating-linear-gradient(45deg, rgba(255, 255, 0, 0.1), rgba(255, 255, 0, 0.1) 10px, transparent 10px, transparent 20px);
+}
+
+.node-icon {
+  font-size: 24px;
+  margin-bottom: 5px;
+}
+
+.node-label {
+  font-weight: bold;
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.node-status {
+  font-size: 10px;
+  font-style: italic;
+  color: #666;
+  margin-top: 5px;
+}
+
+.custom-node .handle {
+  width: 8px;
+  height: 8px;
+  background-color: #555;
+} 

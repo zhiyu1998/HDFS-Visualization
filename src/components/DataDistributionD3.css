@@ -1,0 +1,28 @@
+.data-distribution-container {
+  width: 100%;
+  height: 300px;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-top: 20px;
+  overflow: hidden;
+}
+
+.data-distribution-chart {
+  width: 100%;
+  height: 100%;
+}
+
+.chart-title {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.node-label {
+  font-size: 10px;
+  font-weight: bold;
+}
+
+.block-label {
+  font-weight: bold;
+} 

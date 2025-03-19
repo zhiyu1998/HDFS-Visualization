@@ -1,0 +1,549 @@
+.app {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  height: 100vh;
+  font-family: 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+}
+
+.app-header {
+  background-color: #282c34;
+  padding: 20px;
+  color: white;
+}
+
+.app-header h1 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.app-header p {
+  margin: 10px 0 0;
+  font-size: 16px;
+  opacity: 0.8;
+}
+
+.app-main {
+  display: flex;
+  flex-direction: row;
+  padding: 20px;
+  gap: 20px;
+  flex: 1;
+  overflow: hidden;
+  min-height: calc(100vh - 140px);
+  height: calc(100vh - 140px);
+}
+
+/* 左侧控制面板 */
+.control-panel {
+  width: 280px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  overflow-y: auto;
+  max-height: 100%;
+}
+
+/* 中间画布区域 */
+.hdfs-visualization {
+  flex: 1;
+  min-width: 400px;
+  height: 100%;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.hdfs-visualization .react-flow {
+  width: 100%;
+  height: 100%;
+  flex: 1;
+}
+
+/* 右侧文件视图区域 */
+.right-panel {
+  width: 320px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-height: 100%;
+  overflow: hidden;
+}
+
+/* 标签导航 */
+.tabs-container {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  overflow: hidden;
+  flex: 1;
+}
+
+.tabs-nav {
+  display: flex;
+  background-color: #f0f0f0;
+  border-bottom: 1px solid #ddd;
+}
+
+.tab-button {
+  padding: 12px 20px;
+  background: none;
+  border: none;
+  border-bottom: 3px solid transparent;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  color: #555;
+  transition: all 0.2s ease;
+}
+
+.tab-button:hover {
+  background-color: #e9e9e9;
+}
+
+.tab-button.active {
+  border-bottom-color: #2196f3;
+  color: #2196f3;
+}
+
+.tab-content {
+  padding: 0;
+  overflow-y: auto;
+  flex: 1;
+  height: calc(100% - 49px); /* 49px是标签导航的高度 */
+}
+
+/* 文件列表面板 */
+.file-info-panel {
+  background-color: white;
+  padding: 15px;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.file-info-panel h3 {
+  margin-top: 0;
+  font-size: 16px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+}
+
+.file-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+}
+
+.file-item {
+  background-color: #f9f9f9;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  padding: 12px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.file-item:hover {
+  background-color: #f0f0f0;
+  border-color: #ddd;
+}
+
+.file-item.selected {
+  background-color: #e3f2fd;
+  border-color: #2196f3;
+  box-shadow: 0 0 5px rgba(33, 150, 243, 0.3);
+}
+
+.file-name {
+  font-weight: bold;
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.file-size {
+  color: #666;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.file-blocks {
+  font-size: 14px;
+}
+
+.block-list {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 0;
+}
+
+.block-item {
+  background-color: #fffde7;
+  border: 1px solid #fff59d;
+  border-radius: 3px;
+  padding: 8px;
+  margin-bottom: 5px;
+  font-size: 12px;
+}
+
+.replicas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 5px;
+}
+
+.replica-node {
+  background-color: #e3f2fd;
+  border: 1px solid #bbdefb;
+  border-radius: 3px;
+  padding: 2px 5px;
+  font-size: 11px;
+}
+
+/* 数据分布可视化 */
+.data-distribution {
+  background-color: #fff;
+  padding: 15px;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.data-distribution h3 {
+  margin-top: 0;
+  font-size: 16px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+}
+
+.node-details {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 15px;
+  width: 250px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  z-index: 1000;
+}
+
+.node-details h3 {
+  margin-top: 0;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.app-footer {
+  padding: 15px;
+  background-color: #f0f0f0;
+  border-top: 1px solid #ddd;
+  font-size: 14px;
+  color: #666;
+  margin-top: auto;
+  position: relative;
+  z-index: 10;
+  height: 50px;
+}
+
+/* HDFS配置面板 */
+.hdfs-config-panel {
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 15px;
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.hdfs-config-panel h3 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: 16px;
+}
+
+.config-item {
+  margin-bottom: 10px;
+}
+
+.config-item label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.config-item input[type="number"] {
+  width: 80px;
+  padding: 5px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.slider-container {
+  position: relative;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.slider {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.slider-labels {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  font-size: 12px;
+  color: #666;
+}
+
+/* 块可视化样式 */
+.block-summary {
+  margin: 10px 0;
+  text-align: left;
+}
+
+.block-info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+
+.block-visualization {
+  display: flex;
+  height: 15px;
+  width: 100%;
+  border-radius: 3px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.block-viz-item {
+  height: 100%;
+  transition: all 0.2s ease;
+}
+
+.block-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3px;
+}
+
+.block-size {
+  font-size: 12px;
+}
+
+.block-size.partial {
+  color: #ef6c00;
+  font-weight: bold;
+}
+
+/* 文件大小输入对话框 */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-dialog {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  width: 400px;
+  max-width: 90%;
+}
+
+.modal-dialog h3 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 18px;
+}
+
+.input-group {
+  margin-bottom: 20px;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.block-calculation {
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 15px;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.blocks-preview {
+  display: flex;
+  height: 20px;
+  width: 100%;
+  border-radius: 3px;
+  overflow: hidden;
+  margin: 15px 0;
+}
+
+.preview-block {
+  height: 100%;
+  transition: all 0.2s ease;
+}
+
+.blocks-details {
+  font-size: 13px;
+  max-height: 150px;
+  overflow-y: auto;
+  margin-top: 10px;
+}
+
+.block-detail {
+  padding: 5px;
+  border-bottom: 1px solid #eee;
+}
+
+.block-detail:last-child {
+  border-bottom: none;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.modal-actions button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s;
+}
+
+.modal-actions button:first-child {
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+.modal-actions button:last-child {
+  background-color: #2196f3;
+  color: white;
+}
+
+.modal-actions button:hover {
+  opacity: 0.9;
+}
+
+.file-detail-info {
+  text-align: left;
+}
+
+.file-detail-info > div {
+  margin-bottom: 10px;
+}
+
+.file-detail-info h4 {
+  margin: 15px 0 10px;
+  font-size: 15px;
+  border-top: 1px solid #eee;
+  padding-top: 15px;
+}
+
+/* 自定义滚动条样式 */
+/* 整个应用使用细滚动条 */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent; /* 完全透明的轨道 */
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(180, 180, 180, 0.35); /* 高度透明的滑块 */
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(160, 160, 160, 0.5); /* 悬停时稍微不透明一点 */
+}
+
+/* Firefox滚动条（尽管支持有限） */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(180, 180, 180, 0.35) transparent;
+}
+
+/* 确保滚动容器有圆角 */
+.control-panel, .file-info-panel, .data-distribution, 
+.blocks-details, .tab-content {
+  overflow: auto;
+  border-radius: 4px;
+  /* 添加过渡效果，让滚动条显示/隐藏更平滑 */
+  transition: all 0.3s ease;
+}
+
+/* 当鼠标悬停在容器上时，稍微增加滚动条的不透明度 */
+.control-panel:hover::-webkit-scrollbar-thumb, 
+.file-info-panel:hover::-webkit-scrollbar-thumb, 
+.data-distribution:hover::-webkit-scrollbar-thumb, 
+.blocks-details:hover::-webkit-scrollbar-thumb, 
+.tab-content:hover::-webkit-scrollbar-thumb {
+  background: rgba(160, 160, 160, 0.5);
+}
+
+/* 增强滚动效果 */
+.file-list, .block-list {
+  scroll-padding: 10px;
+  scroll-snap-type: y proximity;
+}
+
+.file-item, .block-item {
+  scroll-snap-align: start;
+  transition: transform 0.2s ease;
+}
+
+/* 滚动时的轻微变换效果 */
+.file-item:hover, .block-item:hover {
+  transform: translateY(-2px);
+}

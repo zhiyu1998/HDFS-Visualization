@@ -1,0 +1,47 @@
+.hdfs-flow {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  touch-action: none; /* 防止触摸事件冲突 */
+}
+
+/* 确保ReactFlow容器尺寸正确 */
+.hdfs-flow .react-flow {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+}
+
+/* 高亮拖拽悬停时的容器 */
+.hdfs-flow.drag-over {
+  outline: 2px dashed #1a192b;
+  background-color: rgba(26, 25, 43, 0.05);
+}
+
+.canvas-drop-area {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.react-flow__node {
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.react-flow__edge-path {
+  stroke-width: 2;
+}
+
+.react-flow__controls {
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+}
+
+.react-flow__minimap {
+  border-radius: 4px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+} 
